@@ -9,82 +9,41 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
-
+    let emojisGroups: [[String]] = [
+        Array(0...0xD7FF).compactMap { UnicodeScalar($0) }.map { String($0) },
+        Array(0xE000...0x10FFFF).compactMap { UnicodeScalar($0) }.map { String($0) },
+        Array(0x1F30D...0x1F567).compactMap { UnicodeScalar($0) }.map { String($0) },
+        Array(0x1F469...0x1F9B0).compactMap { UnicodeScalar($0) }.map { String($0) },
+        Array(0x1F004...0x1F5A5).compactMap { UnicodeScalar($0) }.map { String($0) },
+    ]
+    
+    let emojiList = Array(0xE000...0x10FFFF).compactMap { UnicodeScalar($0) }.map { String($0) }
+    
+    let columns = [GridItem(.adaptive(minimum: 20))]
+    
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
-                    }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-#if os(iOS)
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-#endif
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
+        ScrollView {
+            LazyVGrid(columns: columns) {
+                ForEach(emojiList, id: \.self) { emoji in
+                    Text(emoji)
                 }
             }
-            Text("Select an item")
+            .padding()
         }
     }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
+    
+    func emojiSelected(_ emoji: String) {
+        // Handle the selected emoji here
+        var result = ""
+        for scalar in emoji.unicodeScalars {
+            result = result + String(format: "%X", scalar.value)
         }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
+        print("Selected emoji: \(emoji) \(result)")
     }
 }
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView()
     }
 }

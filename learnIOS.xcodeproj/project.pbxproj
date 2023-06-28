@@ -13,6 +13,7 @@
 		A3B99D0B2A4BE38100350474 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B99D0A2A4BE38100350474 /* ContentView.swift */; };
 		A3B99D0D2A4BE38300350474 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3B99D0C2A4BE38300350474 /* Assets.xcassets */; };
 		A3B99D112A4BE38300350474 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3B99D102A4BE38300350474 /* Preview Assets.xcassets */; };
+		A3B99D192A4BE9DF00350474 /* CoreDataPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B99D182A4BE9DF00350474 /* CoreDataPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		A3B99D0C2A4BE38300350474 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3B99D0E2A4BE38300350474 /* learnIOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = learnIOS.entitlements; sourceTree = "<group>"; };
 		A3B99D102A4BE38300350474 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A3B99D182A4BE9DF00350474 /* CoreDataPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		A3B99D022A4BE38100350474 /* learnIOS */ = {
 			isa = PBXGroup;
 			children = (
+				A3B99D172A4BE9B700350474 /* CoreData */,
 				A3B99D032A4BE38100350474 /* learnIOSApp.swift */,
 				A3B99D052A4BE38100350474 /* Persistence.swift */,
 				A3B99D0A2A4BE38100350474 /* ContentView.swift */,
@@ -73,6 +76,14 @@
 				A3B99D102A4BE38300350474 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A3B99D172A4BE9B700350474 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				A3B99D182A4BE9DF00350474 /* CoreDataPage.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +159,7 @@
 				A3B99D042A4BE38100350474 /* learnIOSApp.swift in Sources */,
 				A3B99D092A4BE38100350474 /* learnIOS.xcdatamodeld in Sources */,
 				A3B99D0B2A4BE38100350474 /* ContentView.swift in Sources */,
+				A3B99D192A4BE9DF00350474 /* CoreDataPage.swift in Sources */,
 				A3B99D062A4BE38100350474 /* Persistence.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,7 +299,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
@@ -325,7 +337,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
