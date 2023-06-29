@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct learnIOSApp: App {
     let persistenceController = PersistenceController.shared
+    let emojiManager = EmojiManager.shared
 
     var body: some Scene {
         WindowGroup {

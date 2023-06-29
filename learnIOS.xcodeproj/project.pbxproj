@@ -14,6 +14,7 @@
 		A3B99D0D2A4BE38300350474 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3B99D0C2A4BE38300350474 /* Assets.xcassets */; };
 		A3B99D112A4BE38300350474 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3B99D102A4BE38300350474 /* Preview Assets.xcassets */; };
 		A3B99D192A4BE9DF00350474 /* CoreDataPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B99D182A4BE9DF00350474 /* CoreDataPage.swift */; };
+		A3B99D1C2A4D221900350474 /* EmojiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B99D1B2A4D221900350474 /* EmojiManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		A3B99D0E2A4BE38300350474 /* learnIOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = learnIOS.entitlements; sourceTree = "<group>"; };
 		A3B99D102A4BE38300350474 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A3B99D182A4BE9DF00350474 /* CoreDataPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPage.swift; sourceTree = "<group>"; };
+		A3B99D1B2A4D221900350474 /* EmojiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		A3B99D022A4BE38100350474 /* learnIOS */ = {
 			isa = PBXGroup;
 			children = (
+				A3B99D1A2A4D220800350474 /* common */,
 				A3B99D172A4BE9B700350474 /* CoreData */,
 				A3B99D032A4BE38100350474 /* learnIOSApp.swift */,
 				A3B99D052A4BE38100350474 /* Persistence.swift */,
@@ -84,6 +87,14 @@
 				A3B99D182A4BE9DF00350474 /* CoreDataPage.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		A3B99D1A2A4D220800350474 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				A3B99D1B2A4D221900350474 /* EmojiManager.swift */,
+			);
+			path = common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +171,7 @@
 				A3B99D092A4BE38100350474 /* learnIOS.xcdatamodeld in Sources */,
 				A3B99D0B2A4BE38100350474 /* ContentView.swift in Sources */,
 				A3B99D192A4BE9DF00350474 /* CoreDataPage.swift in Sources */,
+				A3B99D1C2A4D221900350474 /* EmojiManager.swift in Sources */,
 				A3B99D062A4BE38100350474 /* Persistence.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
