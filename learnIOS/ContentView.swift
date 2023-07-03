@@ -27,10 +27,20 @@ struct ContentView: View {
             ScrollView {
                 let columns = Array(repeating: GridItem(.flexible(), spacing: 8), count: 10)
                 let currentGroup = emojiGroupList[selectedGroupIndex]
-                let emojiList = currentGroup.subgroupList.flatMap { $0.emojiList }
-                LazyVGrid(columns: columns, spacing: 8) {
-                    ForEach(emojiList, id: \.self) { emoji in
-                        Text(buildEmojiStr(emoji))
+                ForEach(currentGroup.subgroupList, id: \.self) { subList in
+                    GroupBox {
+                        let len = 10
+                        let emojiListReduce = subList.emojiList.group(len)
+                        ForEach(emojiListReduce, id: \.self) { emojiList in
+                            HStack {
+                                ForEach(emojiList, id: \.self) { emoji in
+                                    Text(buildEmojiStr(emoji))
+                                }
+                            }
+                            .frame(minWidth: 0, maxWidth: .infinity, alignment: Alignment.leading)
+                        }
+                    } label: {
+                        Text(subList.groupName)
                     }
                 }
                 .padding()
@@ -40,12 +50,12 @@ struct ContentView: View {
                     Text(emojiGroupList[index].groupName)
                 }
             }
-            .pickerStyle(.segmented)
-            .padding()
+            .pickerStyle(.menu)
+            .padding(.horizontal, 16)
         }
     }
     
-    private func buildEmojiStr(_ emoji: Emoji)->String {
+    private func buildEmojiStr(_ emoji: Emoji) -> String {
         var emojiString = ""
         emoji.emojiList.forEach { emojiItem in
             if let intValue = UInt32(emojiItem, radix: 16),  let scalar = UnicodeScalar(intValue) {
@@ -68,5 +78,13 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+extension Array {
+    func group(_ len: Int) -> [[Element]] {
+        stride(from: 0, to: count, by: len).map {
+            Array(self[$0..<Swift.min($0+len, count)])
+        }
     }
 }
